@@ -135,7 +135,7 @@ header{
 
 }
 .l1{
-    font-size:14mm;
+    font-size:12mm;
     font-weight: 900;
     padding:0;
 
@@ -240,8 +240,15 @@ header{
     margin:0;
     text-align:center;
 }
-
-
+.editable{
+    border:solid 1px #0000;
+    display: block;
+    min-width:50px;
+}
+.editable:hover{
+    border:solid 1px #555;
+    display: block;
+}
 .icon{
     width:2rem;
     height:2rem;
