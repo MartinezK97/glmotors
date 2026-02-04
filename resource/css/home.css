@@ -3,21 +3,34 @@
     --a4h:297mm;
     --maxw:calc(100% - 4rem);
     --menuW:60mm;
+    --struct:#000;
+    --background:#eee;
 }
 body{
-    background-color: #eee;
     margin:0;
     padding:0;
     display: grid;
     max-width: calc();
-    grid-gap:1rem;
+    grid-gap:0 1rem;
     /* background: white; */
     grid-template-columns:var(--menuW) max-content;
+    background:var(--background);
 
+}
+body > header{
+    grid-column:1/3;
+    height: 50px;
+    background-color: var(--struct);
+    width: 100vw;
+    margin:0;
 }
 
 *{
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: "Saira", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    font-variation-settings:
+      "wdth" 100;
     box-sizing: border-box;
     color:#333;
     print-color-adjust:exact;
@@ -25,32 +38,44 @@ body{
 .content-printable{
     /* border: solid 1px red; */
     box-shadow: 0 0 15px #0004;
+    margin-top:1rem;
 }
 .a4{
-    width:var(--aw4);
+    width:var(--a4w);
+    min-width:var(--a4w);
+    max-width:var(--a4w);
     min-height:297mm;
-    /* transform:scale(0.8); */
+    transform:scale(1);
     transform-origin: 50% 50%;
     /* position:fixed; */
-    top:0;
+    top:1rem;
     right:0;
     /* position: absolute; */
     grid-column:2/3;
-    background:white;
+    background:white !important;
+    padding:0;
+    margin:0;
 }
 
 .paper{
     position:relative;
-    height: 145mm;
+    min-height: 135mm;
+    max-height: 135mm;
+    overflow: hidden;
     border:dashed 1px #eee;
     width:var(--a4w);
     background:#fff;
+    /* border:solid 1px red; */
+    box-sizing: border-box;
+    margin:0 0;
 }
+
+
 
 nav#menu{
     width:var(--menuW);
     inset:0;
-    background: #000;
+    background:  var(--struct);
     overflow: hidden;
     position: sticky;
     top:0;
@@ -59,35 +84,50 @@ nav#menu{
     max-height: 100dvh;
 }
 
-nav#menu > *{
+nav#menu > button, nav#menu a{
     background:transparent;
     border:none;
     color:#fff;
-    font-size:20px;
+    font-size:6mm;
     width:calc(100% - 8mm);
     margin:0 auto;
     text-align:left;
     border-bottom: solid 1px #fff2;
     padding:2mm 5mm;
     text-decoration: none;
-    font-weight:500;
+    font-weight:500.icon;
 
 }
+
+nav#menu i{
+    color:inherit;
+}
 nav#menu > *:hover{
-    color:red;
+    color:rgb(0, 195, 255);
     cursor:pointer;
 
 }
 
 
 header{
-    padding-top:5mm;
+    padding:5mm 0 0;
+    width:190mm;
+    margin:0 auto;
 }
     header img{
     height:30mm;
+    /* width:158mm; */
     display:block;
-    margin: 0 auto;
+    margin: 0;
     /* border: solid 1px red; */
+}
+.qr{
+    width:35mm;
+    height:35mm;
+    position:absolute;
+    top:3mm;
+    right:3mm;
+    border:solid 1px #fff;
 }
 .l1, .l2, .l3, .l4{
     max-width:190mm;
@@ -95,47 +135,55 @@ header{
 
 }
 .l1{
-    font-size:48px;
+    font-size:14mm;
     font-weight: 900;
     padding:0;
 
     width:190mm;
-    margin: 0rem  auto 1rem;
+    margin: 0rem auto;
     align-items: center;
 }
 
-.brand_img{
-    width: 8rem;
-    display:block;
+.nodisplay{
+    display:none;
 }
 
 .l2{
     border-top: solid 1px #999;
     border-bottom: solid 1px #999;
-    width:190mm;
+    width:240mm;
     margin:0 auto;
     display: grid;
-    grid-template-columns: max-content auto max-content;
+    grid-template-columns: repeat(4, auto);
     grid-auto-rows: min-content;
     max-height:min-content;
     align-content:center;
     padding:1mm 0;
+    place-items: center;
+    align-content: center;
 }
 
 .l2 p{
-    font-size:30px;
+    font-size:25px;
     font-weight: 600;
     display: grid;
     grid-template-columns: max-content max-content;
     grid-gap: 1rem;
-    align-self: center;
+    align-items: center;
     font-weight:900;
+    overflow:hidden;
 }
+
+
 .l2 p:nth-child(1){
     align-self: center;
     margin:0 ;
     padding: 0;
+}
 
+.l2 p:nth-child(1) i{
+    font-size:45px;
+    align-self:center;
 }
 
 
@@ -146,13 +194,25 @@ header{
     align-self: center;
     padding:0;
 }
-    
+.l2 p:nth-child(2) i{
+    font-size: 30px;
+    align-self:center;
+}
+
 .l2 p:nth-child(3){
     max-width: max-content;
     margin: 0 0 auto auto;
     align-self: center;
 }
 
+.l2 p:nth-child(4){
+    max-width: max-content;
+    margin: 0 0 auto auto;
+    align-self: center;
+}
+.l2 p i{
+    font-size:40px;
+}
 
 .l3{
     width:var(--maxw);
@@ -164,7 +224,8 @@ header{
     padding:0;
     margin:0;
     width:190mm;
-    margin: 3mm auto 0;
+    margin: 0mm auto 0;
+    font-weight: 800;
 }
 .l4{
     max-width:190mm;
@@ -172,19 +233,19 @@ header{
     
 }
 .l4 h2{
-    font-size:44px;
-    text-align: left;
-    /* color:#fff; */
+    font-size:35px;
     font-weight: 900;
     color:red;
     padding:0;
-    margin:3mm 0 0;
+    margin:0;
+    text-align:center;
 }
 
 
 .icon{
     width:2rem;
     height:2rem;
+    align-self:center;
 }
 
 @media print {

@@ -3,22 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Ficha Vehicular | GL motors</title>
     <link rel="stylesheet" href="./resource/css/home.css">
+    <link rel="stylesheet" href="./resource/css/icons.css">
     <script src="./resource/js/nueva-ficha-vehicular.js"></script>
+    <script src="./resource/js/newqr.js"></script>
     <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body class="user">
+    <header>
+        
+    </header>
     <nav id="menu">
-        <button id="nueva-ficha" class="btn-agregar" onclick="agregarNuevaFicha();">Agregar</button>
-        <button class="print" id="print-all" onclick="print('a4')">Imprimir</button>
-        <a href="/">Resetear</a>
+        <button id="nueva-ficha" class="btn-agregar" onclick="agregarNuevaFicha();"><i class="icon-plus"></i> Agregar</button>
+        <button class="print" id="print-all" onclick="print('a4')"><i class="icon-print"></i> Imprimir</button>
+        <a href=""><i class="icon-trash"></i> Resetear</a>
+        <button class="btn-active-qr" id="qr-active"> Ocultar QR</button>
     </nav>
     <section class="content-printable">
         <section class="a4" id="a4">
             
         </section>
     </section>
+    
 </body>
 </html>

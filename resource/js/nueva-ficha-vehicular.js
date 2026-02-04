@@ -1,4 +1,6 @@
 // Función para cargar una ficha vehicular
+var counter = 1;
+
 function cargarFichaVehicular(contenedor) {
     fetch('resource/components/ficha-vehicular.html')
         .then(response => {
@@ -23,6 +25,8 @@ function agregarNuevaFicha() {
     // Crear un nuevo elemento section con clase a4
     const nuevaFicha = document.createElement('section');
     nuevaFicha.className = 'paper';
+    counter++;
+    nuevaFicha.id = 'p_'+counter;
     
     // Agregar la nueva ficha al contenedor principal (.content-printable)
     const contenedorPrincipal = document.querySelector('.a4');
@@ -30,6 +34,7 @@ function agregarNuevaFicha() {
     
     // Cargar el contenido de ficha-vehicular.html dentro de la nueva ficha
     cargarFichaVehicular(nuevaFicha);
+    console.log(counter)
 }
 
 // Función para imprimir todas las fichas
@@ -118,4 +123,6 @@ document.addEventListener('DOMContentLoaded', function() {
     if (A4) {
         cargarFichaVehicular(A4);
     }
+    
 });
+
