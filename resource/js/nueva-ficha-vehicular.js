@@ -37,19 +37,6 @@ function agregarNuevaFicha() {
     console.log(counter)
 }
 
-// Función para imprimir todas las fichas
-function print2(element) {
-    var elem= document.getElementById(element);
-    var contenido = elem.innerHTML;
-     var contenidoOriginal= document.body.innerHTML;
-     document.body.style.gridTemplateColumns = '1fr';
-
-     document.body.innerHTML = contenido;
-
-    window.print();
-
-     document.body.innerHTML = contenidoOriginal;
-}
 
 function print(elementId) {
     // Obtener el elemento
@@ -123,6 +110,95 @@ document.addEventListener('DOMContentLoaded', function() {
     if (A4) {
         cargarFichaVehicular(A4);
     }
+
+    // Buscar todos los elementos con la clase 'select-fuel'
+    document.querySelectorAll('.select-fuel').forEach(element => {
+        element.addEventListener('change', function(){
+            var icon = this.previousElementSibling;
+            var value = this.value;
+            
+            // Primero, quitar todas las clases que empiecen con 'icon-'
+            Array.from(icon.classList).forEach(className => {
+                if (className.startsWith('icon-')) {
+                    icon.classList.remove(className);
+                }
+            });
+            
+            // Luego agregar la nueva clase
+            icon.classList.add('icon-' + value);
+        });
+    });
+
+    //Cambiar icono de combustible
+    document.addEventListener('change', function (e) {
+        if (!e.target.matches('.fuel-select')) return;
+      
+        const select = e.target;
+        const icon = select.previousElementSibling;
+        const newClass = select.value;
+      
+        // Limpiamos clases anteriores
+        icon.className = 'fuel-icon-select';
+        icon.classList.add(newClass);
+      });
+      
     
-});
+      
+      //Eliminar renglon
+      document.addEventListener('click', function (e) {
+        const trash = e.target.closest('.icon-trash');
+        if (!trash) return;
+      
+        // El div que envuelve el p + icon-trash
+        const item = trash.closest('div');
+        if (item) {
+          item.remove();
+        }
+      });
+
+      //Agregar renglon
+      document.addEventListener('click', function (e) {
+        const addBtn = e.target.closest('.add-row');
+        if (!addBtn) return;
+      
+        const l3 = addBtn.closest('.l3');
+        if (!l3) return;
+      
+        l3.insertAdjacentHTML('beforeend', `
+          <div class="row">
+            <p class="editable" contenteditable="true">
+              Características del vehículo
+            </p>
+            <i class="icon-trash"></i>
+          </div>
+        `);
+      
+        // foco automático al nuevo texto (opcional pero hermoso)
+        const newRow = l3.lastElementChild;
+        newRow.querySelector('.editable')?.focus();
+      });
+      
+      
+      document.addEventListener('click', function (e) {
+        if (!e.target.matches('.delete-paper')) return;
+        
+        const paper = e.target.closest('.paper');
+        if (!paper) return;
+        
+        // Elimina el paper y también su padre si es un contenedor vacío
+        const parent = paper.parentElement;
+        paper.remove();
+        
+        // Si el padre está vacío después de eliminar el paper, elimínalo también
+        if (parent.children.length === 0) {
+            parent.remove();
+        }
+    });
+    
+    
+    
+    
+    
+    
+});//end document ready
 

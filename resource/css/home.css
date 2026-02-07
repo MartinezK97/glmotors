@@ -5,6 +5,7 @@
     --menuW:60mm;
     --struct:#000;
     --background:#eee;
+    --red:#d40000;
 }
 body{
     margin:0;
@@ -36,7 +37,6 @@ body > header{
     print-color-adjust:exact;
 }
 .content-printable{
-    /* border: solid 1px red; */
     box-shadow: 0 0 15px #0004;
     margin-top:1rem;
 }
@@ -65,9 +65,34 @@ body > header{
     border:dashed 1px #eee;
     width:var(--a4w);
     background:#fff;
-    /* border:solid 1px red; */
     box-sizing: border-box;
     margin:0 0;
+    width:100%;
+}
+
+.paper .delete-paper{
+    position:absolute;
+    right:5mm;
+    top:3mm;
+    display:block;
+    z-index:2;
+    color:var(--red);
+    backdrop-filter: blur(4px);
+    font-size:4mm;
+    border:solid 1px #fff;
+    border-radius:50px;
+    padding:1mm 3mm;
+    font-weight:600;
+    box-shadow:0 0 15px -5px #0008;
+    visibility:hidden;
+}
+.paper:hover .delete-paper{
+    visibility:visible;
+}
+
+.paper .delete-paper:hover{
+    background:rgb(236, 142, 142);
+    
 }
 
 
@@ -119,20 +144,19 @@ header{
     /* width:158mm; */
     display:block;
     margin: 0;
-    /* border: solid 1px red; */
 }
 .qr{
     width:35mm;
     height:35mm;
     position:absolute;
     top:3mm;
-    right:3mm;
+    right:10mm;
     border:solid 1px #fff;
 }
 .l1, .l2, .l3, .l4{
     max-width:190mm;
     display:block;
-
+    /* border:solid 1px red; */
 }
 .l1{
     font-size:12mm;
@@ -154,16 +178,29 @@ header{
     width:240mm;
     margin:0 auto;
     display: grid;
-    grid-template-columns: repeat(4, auto);
+    grid-template-columns: max-content auto auto max-content;
+    grid-template-columns: auto auto auto auto;
     grid-auto-rows: min-content;
     max-height:min-content;
     align-content:center;
     padding:1mm 0;
     place-items: center;
-    align-content: center;
+    place-content:space-between;
+    z-index:1;
+    position:relative;
 }
+select {
+    appearance: base-select;
+}
+::picker(select) {
+    appearance: base-select;
+}
+::checkmark{
+    display:none;
+}
+select::picker-icon { display: none; }
 
-.l2 p{
+.l2 p, .l2 select{
     font-size:25px;
     font-weight: 600;
     display: grid;
@@ -172,8 +209,19 @@ header{
     align-items: center;
     font-weight:900;
     overflow:hidden;
+    border:solid 1px transparent;
+    border-radius:5px;
+    outline:none;
+
 }
 
+.l2 select{
+    padding:0;
+    background:#fff;
+}
+.l2 select:hover{
+    border:solid 1px #555;
+}
 
 .l2 p:nth-child(1){
     align-self: center;
@@ -217,16 +265,89 @@ header{
 .l3{
     width:var(--maxw);
     margin: 0 auto;
+    height: 52.6mm;
+    display: grid;
+    align-content: center;
+    grid-template-rows: repeat(4, min-content);
+    position:relative;
 }
 
-.l3 h2{
+.l3 div{
+    /* border:solid 1px blue; */
+    position:relative;
+    padding:2mm 0;
+    background:#fff;
+}
+
+
+
+.l3 div p{
     font-size:30.4px;
     padding:0;
     margin:0;
     width:190mm;
-    margin: 0mm auto 0;
+    margin: 0 auto;
+    /* border:solid 1px green; */
     font-weight: 800;
+    line-height:1;
+    position:relative;
+    outline:none;
 }
+
+.l3 div:nth-last-child(2) p{
+    color:var(--red) !important;
+    padding:2mm 0;
+    text-align:center;
+    font-weight:900;
+    background:#fff;
+}
+
+
+
+
+.l3 div i{
+    color:#a3a3a3;
+    position: absolute;
+    right:0mm;
+    top:0;
+    bottom:0;
+    display:grid;
+    place-items:center;
+    font-size:5mm;
+    margin:auto 10mm auto auto;
+    height:100%;
+    margin: 0;
+    visibility:hidden;
+}
+
+.l3 div:hover i{
+    visibility:visible;
+}
+
+.l3 div i:hover{
+    color:var(--red);
+    cursor:pointer;
+}
+.add-row{
+    position:absolute;
+    color:#a3a3a3;
+    height: min-content;
+    inset:auto 0 1mm 0;
+    display:block;
+    text-align: center;
+    visibility:hidden;
+    z-index:0;
+}
+
+
+.l3:hover .add-row{
+    visibility:visible;
+}
+
+.add-row:hover{
+    color:green,
+}
+
 .l4{
     max-width:190mm;
     margin: 0 auto;
@@ -235,10 +356,12 @@ header{
 .l4 h2{
     font-size:35px;
     font-weight: 900;
-    color:red;
+    color:var(--red);
     padding:0;
-    margin:0;
+    margin:-2mm 0 0 0;
     text-align:center;
+    background:#fff;
+
 }
 .editable{
     border:solid 1px #0000;
