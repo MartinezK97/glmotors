@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ficha Vehicular | GL motors</title>
+  
+    <!-- CSS -->
+    <link rel="stylesheet" href="../resource/css/default.css">
+    <link rel="stylesheet" href="../resource/css/icons.css">
+    <link rel="stylesheet" href="../resource/css/documents.css">
+    <link rel="stylesheet" type="text/css" href="https://printjs-4de6.kxcdn.com/print.min.css">
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- JS -->
+    <script src="../resource/js/documents.js"></script>
+
+    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+
+</head>
+
+
+<body class="user">
+    <header>
+        <img src="../logo_.png"class="logo "alt="">
+        <nav id="menu-header">
+            <a href="../">Ficha vehicular</a>
+            <a href="/">Documentos</a>
+        </nav>
+    </header>
+    <nav id="menu">
+        <h3>Fecha de venta</h3>
+        <div class="data">
+            <span class="placeholder">Fecha</span>
+            <input type="date" class="input-data" data-rel-day="day" data-rel-month="month" data-rel-year="year" id="date">
+        </div>
+        <h3>Información del cliente</h3>
+        <div class="data">
+            <span class="placeholder">Nombre completo</span>
+            <input type="text" class="input-data" rel="client-name">
+        </div>
+        <div class="data">
+            <span class="placeholder">Cédula de identidad</span>
+            <input type="text" class="input-data" rel="ci">
+        </div>
+        <div class="data">
+            <span class="placeholder">Domicilio</span>
+            <input type="text" class="input-data" rel="client-address">
+        </div>
+        <h3>Información del vehículo</h3>
+        <div class="data">
+            <span class="placeholder">Tipo de vehículo</span>
+            <input type="text" rel="vehicle-type">
+        </div>
+        <div class="data">
+            <span class="placeholder">Marca</span>
+            <input type="text" rel="vehicle-brand">
+        </div>
+
+        <div class="data">
+            <span class="placeholder">Modelo</span>
+            <input type="text"  rel="vehicle-model">
+        </div>
+        <div class="data">
+            <span class="placeholder">Cédula de identidad</span>
+            <input type="text">
+        </div>
+    </nav>
+    
+    <div class="content">
+        <section class="a4" id="">
+            <!-- <header>XX de MES de 202X, Montevideo, Uruguay</header> -->
+            <h2>COMPROMISO DE COMPRA VENTA</h2>
+            <p>En la ciudad de Montevideo, el día <span class="input-result" id="day">__</span> de <span class="input-result" id="month">_______</span> de <span class="input-result" id="year">____</span>
+                comparecen por una parte __________________ y por otra parte <span class="input-result" id="client-name">_______________</span> titular de la cédula de identidad Nº <span class="input-result" id="ci">__________</span> con domicilio en <span class="input-result" id="client-address">__________</span> quienes convienen en celebrar el siguiente compromiso de compraventa.</p>
+            <p>PRIMERO: la parte nombrada en primer término se obliga a vender, y la designada en segundo lugar se obliga a comprar libre de obligaciones y gravámentes, la propiedad y posesión del siguiente bien</p>
+            <p>un __________________ marca __________________ modelo __________________ tipo __________________ empadronado con el Nº __________________ matriculado con el Nº __________________ en el Departamento de __________________ motor Nº __________________ año ____ </p>
+            
+            <p>SEGUNDO: El precio de la compraventa queda fijado en la suma de ________________ dólares americanos que se integrarà en la siguiente forma:</p>
+            <p>___________________________________________________________________________
+            </p>
+            <p>TERCERO: El contrato de compraventa y la transferencia municipal del vehículo se otorgará en el plazo de __________________ contados a partir de hoy, obligándose a la promitente dendedora a poner a disposicion de la parte promitente compradora la documentación necesaria a tales fines con anterioridad al vencimiento del plazo pactado. </p>
+            <p>CUARTO: La parte promitente vendedora entrega a la promitente compradora la posesión del bien, quien lo recibe a su satisfacción el día __________________ por lo que son de cuenta éste las multas, infracciones, y demás responsabilidades civiles y/o penales con que el mismo cometan, a partir de ésta fecha, así como los daños  que sufriera el vehículo u ocasionare a terceros.</p>
+            <p>QUINTO: Los impuestos, honorarios y demás gastos que se originen en la presente enajenación seràsn abonadas por la parte promitente compradora.</p>
+            <!-- <p>SEXTO: La parte que dejare de cumplir este compromiso, abonará a la otra por toda indemnización, la cantidad de __________________</p> -->
+            <!-- <p>SÉPTIMO: Las partes caerán en mora en pleno derecho, sin necesidad de acto alguno judicial ni extrajudicial, por el solo vencimiento de los términos fijados o por la realización u omisión de cualquier acto o hecho que se traduzca en hacer o en no hacer algo contrario a lo estipulado.</p> -->
+            <!-- <p>OCTAVO: Las partes contituyen domicilios especiales a los efectos a que pueda dar lugar este compromiso , en los respectivamente indicados.</p> -->
+
+
+            <section class="firm">
+                <p>Ambas partes firman en conformidad.</p>
+                <div>
+                    <p></p>
+                    <div>Firma del comprador</div>
+                </div>
+                <div>
+                    <p></p>
+                    <div>Firma del vendedor</div>
+                </div>
+            </section>  
+            <img src="../resource/img/logo.png" class="watermarker" alt="">
+        </section><!-- fin A4 -->
+    </div>
+
+    
+    
+</body>
+</html>

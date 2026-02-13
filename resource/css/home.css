@@ -1,66 +1,9 @@
-:root{
-    --a4w:210mm;
-    --a4h:297mm;
-    --maxw:calc(100% - 4rem);
-    --menuW:60mm;
-    --struct:#000;
-    --background:#eee;
-    --red:#d40000;
-}
-body{
-    margin:0;
-    padding:0;
-    display: grid;
-    max-width: calc();
-    grid-gap:0 1rem;
-    /* background: white; */
-    grid-template-columns:var(--menuW) max-content;
-    background:var(--background);
 
-}
-body > header{
-    grid-column:1/3;
-    height: 50px;
-    background-color: var(--struct);
-    width: 100vw;
-    margin:0;
-}
-
-*{
-    font-family: "Saira", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
-    box-sizing: border-box;
-    color:#333;
-    print-color-adjust:exact;
-}
-.content-printable{
-    box-shadow: 0 0 15px #0004;
-    margin-top:1rem;
-}
-.a4{
-    width:var(--a4w);
-    min-width:var(--a4w);
-    max-width:var(--a4w);
-    min-height:297mm;
-    transform:scale(1);
-    transform-origin: 50% 50%;
-    /* position:fixed; */
-    top:1rem;
-    right:0;
-    /* position: absolute; */
-    grid-column:2/3;
-    background:white !important;
-    padding:0;
-    margin:0;
-}
 
 .paper{
     position:relative;
-    min-height: 135mm;
-    max-height: 135mm;
+    min-height: 138mm;
+    max-height: 138mm;
     overflow: hidden;
     border:dashed 1px #eee;
     width:var(--a4w);
@@ -97,42 +40,6 @@ body > header{
 
 
 
-nav#menu{
-    width:var(--menuW);
-    inset:0;
-    background:  var(--struct);
-    overflow: hidden;
-    position: sticky;
-    top:0;
-    display:grid;
-    grid-auto-rows:min-content;
-    max-height: 100dvh;
-}
-
-nav#menu > button, nav#menu a{
-    background:transparent;
-    border:none;
-    color:#fff;
-    font-size:6mm;
-    width:calc(100% - 8mm);
-    margin:0 auto;
-    text-align:left;
-    border-bottom: solid 1px #fff2;
-    padding:2mm 5mm;
-    text-decoration: none;
-    font-weight:500.icon;
-
-}
-
-nav#menu i{
-    color:inherit;
-}
-nav#menu > *:hover{
-    color:rgb(0, 195, 255);
-    cursor:pointer;
-
-}
-
 
 header{
     padding:5mm 0 0;
@@ -150,13 +57,13 @@ header{
     height:35mm;
     position:absolute;
     top:3mm;
-    right:10mm;
+    right:3mm;
     border:solid 1px #fff;
 }
 .l1, .l2, .l3, .l4{
     max-width:190mm;
     display:block;
-    /* border:solid 1px red; */
+    background:#fff;
 }
 .l1{
     font-size:12mm;
@@ -265,26 +172,30 @@ select::picker-icon { display: none; }
 .l3{
     width:var(--maxw);
     margin: 0 auto;
-    height: 52.6mm;
+    height: 56mm;
     display: grid;
     align-content: center;
-    grid-template-rows: repeat(4, min-content);
+    grid-auto-rows: min-content;
     position:relative;
+    /* border:solid 1px blue; */
+    print-color-adjust: exact;
 }
 
 .l3 div{
     /* border:solid 1px blue; */
     position:relative;
     padding:2mm 0;
+    margin:0 auto;
     background:#fff;
+    /* border:solid 1px red; */
 }
 
 
 
 .l3 div p{
-    font-size:30.4px;
+    font-size:22pt;
     padding:0;
-    margin:0;
+    margin:0 auto;
     width:190mm;
     margin: 0 auto;
     /* border:solid 1px green; */
@@ -294,9 +205,12 @@ select::picker-icon { display: none; }
     outline:none;
 }
 
-.l3 div:nth-last-child(2) p{
+.l3 div:nth-last-child(1){
+    background:#fff;
+}
+    .l3 div:nth-last-child(1) p{
     color:var(--red) !important;
-    padding:2mm 0;
+    padding:1mm 0;
     text-align:center;
     font-weight:900;
     background:#fff;
@@ -332,7 +246,7 @@ select::picker-icon { display: none; }
     position:absolute;
     color:#a3a3a3;
     height: min-content;
-    inset:auto 0 1mm 0;
+    inset:auto 0 3mm 0;
     display:block;
     text-align: center;
     visibility:hidden;
@@ -382,6 +296,8 @@ select::picker-icon { display: none; }
     .a4 {
         page-break-after: always;
         page-break-inside: avoid;
+        print-color-adjust:exact;
+
     }
     
     nav {

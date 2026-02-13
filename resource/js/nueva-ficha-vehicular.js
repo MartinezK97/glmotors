@@ -174,23 +174,21 @@ document.addEventListener('DOMContentLoaded', function() {
         `);
       
         // foco automático al nuevo texto (opcional pero hermoso)
-        const newRow = l3.lastElementChild;
+        const newRow = l3.firstElementChild;
         newRow.querySelector('.editable')?.focus();
       });
       
       
       document.addEventListener('click', function (e) {
         if (!e.target.matches('.delete-paper')) return;
-        
+    
         const paper = e.target.closest('.paper');
         if (!paper) return;
-        
-        // Elimina el paper y también su padre si es un contenedor vacío
+    
         const parent = paper.parentElement;
         paper.remove();
-        
-        // Si el padre está vacío después de eliminar el paper, elimínalo también
-        if (parent.children.length === 0) {
+    
+        if (parent && parent.children.length === 0) {
             parent.remove();
         }
     });
